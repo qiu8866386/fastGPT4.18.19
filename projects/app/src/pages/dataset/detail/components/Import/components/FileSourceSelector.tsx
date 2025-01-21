@@ -27,16 +27,6 @@ const FileModeSelector = ({ onClose }: { onClose: () => void }) => {
               title: t('common:core.dataset.import.Local file'),
               desc: t('common:core.dataset.import.Local file desc'),
               value: ImportDataSourceEnum.fileLocal
-            },
-            {
-              title: t('common:core.dataset.import.Web link'),
-              desc: t('common:core.dataset.import.Web link desc'),
-              value: ImportDataSourceEnum.fileLink
-            },
-            {
-              title: t('common:core.dataset.import.Custom text'),
-              desc: t('common:core.dataset.import.Custom text desc'),
-              value: ImportDataSourceEnum.fileCustom
             }
           ]}
           value={value}

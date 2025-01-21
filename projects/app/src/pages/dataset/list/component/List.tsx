@@ -223,17 +223,7 @@ function List() {
                       {dataset.name}
                     </Box>
 
-                    <Box mr={'-1.25rem'}>
-                      {dataset.type !== DatasetTypeEnum.folder && (
-                        <SideTag
-                          type={dataset.type}
-                          py={0.5}
-                          px={2}
-                          borderLeftRadius={'sm'}
-                          borderRightRadius={0}
-                        />
-                      )}
-                    </Box>
+                  
                   </HStack>
 
                   <Box
@@ -265,12 +255,7 @@ function List() {
                         avatarSize="1rem"
                         spacing={0.5}
                       />
-                      <PermissionIconText
-                        flexShrink={0}
-                        private={dataset.private}
-                        iconColor="myGray.400"
-                        color={'myGray.500'}
-                      />
+                     
                     </HStack>
 
                     <HStack>
@@ -316,38 +301,38 @@ function List() {
                             menuList={[
                               {
                                 children: [
-                                  {
-                                    icon: 'edit',
-                                    label: t('common:dataset.Edit Info'),
-                                    onClick: () =>
-                                      setEditedDataset({
-                                        id: dataset._id,
-                                        name: dataset.name,
-                                        intro: dataset.intro,
-                                        avatar: dataset.avatar
-                                      })
-                                  },
-                                  ...((parentDataset ? parentDataset : dataset)?.permission
-                                    .hasManagePer
-                                    ? [
-                                        {
-                                          icon: 'common/file/move',
-                                          label: t('common:Move'),
-                                          onClick: () => {
-                                            setMoveDatasetId(dataset._id);
-                                          }
-                                        }
-                                      ]
-                                    : []),
-                                  ...(dataset.permission.hasManagePer
-                                    ? [
-                                        {
-                                          icon: 'key',
-                                          label: t('common:permission.Permission'),
-                                          onClick: () => setEditPerDatasetIndex(index)
-                                        }
-                                      ]
-                                    : [])
+                                  // {
+                                  //   icon: 'edit',
+                                  //   label: t('common:dataset.Edit Info'),
+                                  //   onClick: () =>
+                                  //     setEditedDataset({
+                                  //       id: dataset._id,
+                                  //       name: dataset.name,
+                                  //       intro: dataset.intro,
+                                  //       avatar: dataset.avatar
+                                  //     })
+                                  // },
+                                  // ...((parentDataset ? parentDataset : dataset)?.permission
+                                  //   .hasManagePer
+                                  //   ? [
+                                  //       {
+                                  //         icon: 'common/file/move',
+                                  //         label: t('common:Move'),
+                                  //         onClick: () => {
+                                  //           setMoveDatasetId(dataset._id);
+                                  //         }
+                                  //       }
+                                  //     ]
+                                  //   : []),
+                                  // ...(dataset.permission.hasManagePer
+                                  //   ? [
+                                  //       {
+                                  //         icon: 'key',
+                                  //         label: t('common:permission.Permission'),
+                                  //         onClick: () => setEditPerDatasetIndex(index)
+                                  //       }
+                                  //     ]
+                                  //   : [])
                                 ]
                               },
                               ...(dataset.type != DatasetTypeEnum.folder

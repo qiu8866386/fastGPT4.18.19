@@ -12,14 +12,14 @@ const NavbarPhone = ({ unread }: { unread: number }) => {
   const { lastChatAppId } = useChatStore();
   const navbarList = useMemo(
     () => [
-      {
-        label: t('common:navbar.Chat'),
-        icon: 'core/chat/chatLight',
-        activeIcon: 'core/chat/chatFill',
-        link: `/chat?appId=${lastChatAppId}`,
-        activeLink: ['/chat'],
-        unread: 0
-      },
+      // {
+      //   label: t('common:navbar.Chat'),
+      //   icon: 'core/chat/chatLight',
+      //   activeIcon: 'core/chat/chatFill',
+      //   link: `/chat?appId=${lastChatAppId}`,
+      //   activeLink: ['/chat'],
+      //   unread: 0
+      // },
       {
         label: t('common:navbar.Studio'),
         icon: 'core/app/aiLight',
@@ -36,32 +36,32 @@ const NavbarPhone = ({ unread }: { unread: number }) => {
         activeLink: ['/dataset/list', '/dataset/detail'],
         unread: 0
       },
-      {
-        label: t('common:navbar.Toolkit'),
-        icon: 'phoneTabbar/tool',
-        activeIcon: 'phoneTabbar/toolFill',
-        link: `/toolkit`,
-        activeLink: ['/toolkit'],
-        unread: 0
-      },
-      {
-        label: t('common:navbar.Account'),
-        icon: 'support/user/userLight',
-        activeIcon: 'support/user/userFill',
-        link: '/account/info',
-        activeLink: [
-          '/account/bill',
-          '/account/info',
-          '/account/team',
-          '/account/usage',
-          '/account/apikey',
-          '/account/setting',
-          '/account/inform',
-          '/account/promotion',
-          '/account/model'
-        ],
-        unread
-      }
+      // {
+      //   label: t('common:navbar.Toolkit'),
+      //   icon: 'phoneTabbar/tool',
+      //   activeIcon: 'phoneTabbar/toolFill',
+      //   link: `/toolkit`,
+      //   activeLink: ['/toolkit'],
+      //   unread: 0
+      // },
+      // {
+      //   label: t('common:navbar.Account'),
+      //   icon: 'support/user/userLight',
+      //   activeIcon: 'support/user/userFill',
+      //   link: '/account/info',
+      //   activeLink: [
+      //     '/account/bill',
+      //     '/account/info',
+      //     '/account/team',
+      //     '/account/usage',
+      //     '/account/apikey',
+      //     '/account/setting',
+      //     '/account/inform',
+      //     '/account/promotion',
+      //     '/account/model'
+      //   ],
+      //   unread
+      // }
     ],
     [t, lastChatAppId, unread]
   );

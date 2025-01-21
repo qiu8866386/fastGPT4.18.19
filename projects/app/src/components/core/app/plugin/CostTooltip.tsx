@@ -26,7 +26,7 @@ const CostTooltip = ({ cost, hasTokenFee }: { cost?: number; hasTokenFee?: boole
     <>
       <Divider mt={4} mb={2} />
       <Flex>
-        <Box>{t('common:core.plugin.cost')}</Box>
+        {/* <Box>{t('common:core.plugin.cost')}</Box> */}
         <Box color={'myGray.600'}>{getCostText()}</Box>
       </Flex>
     </>

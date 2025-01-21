@@ -73,7 +73,7 @@ const Logs = () => {
           <Box fontWeight={'bold'} fontSize={['md', 'lg']} mb={2}>
             {t('app:chat_logs')}
           </Box>
-          <Box color={'myGray.500'} fontSize={'sm'}>
+          {/* <Box color={'myGray.500'} fontSize={'sm'}>
             {t('app:chat_logs_tips')},{' '}
             <Box
               as={'span'}
@@ -84,7 +84,7 @@ const Logs = () => {
             >
               {t('common:core.chat.Read Mark Description')}
             </Box>
-          </Box>
+          </Box> */}
         </Box>
       )}
 

@@ -113,29 +113,7 @@ const Info = ({ datasetId }: { datasetId: string }) => {
   return (
     <Box w={'100%'} h={'100%'} p={6}>
       <Box>
-        <Flex mb={2} alignItems={'center'}>
-          <Avatar src={datasetDetail.avatar} w={'20px'} h={'20px'} borderRadius={'xs'} />
-          <Box ml={1.5}>
-            <Box fontWeight={'bold'} color={'myGray.900'}>
-              {datasetDetail.name}
-            </Box>
-          </Box>
-          <MyIcon
-            pl={1.5}
-            name={'edit'}
-            _hover={{ color: 'primary.600' }}
-            w={'0.875rem'}
-            cursor={'pointer'}
-            onClick={() =>
-              setEditedDataset({
-                id: datasetDetail._id,
-                name: datasetDetail.name,
-                avatar: datasetDetail.avatar,
-                intro: datasetDetail.intro
-              })
-            }
-          />
-        </Flex>
+     
         {DatasetTypeMap[datasetDetail.type] && (
           <Flex alignItems={'center'} justifyContent={'space-between'}>
             <DatasetTypeTag type={datasetDetail.type} />
@@ -162,68 +140,6 @@ const Info = ({ datasetId }: { datasetId: string }) => {
           </FormLabel>
           <Box fontSize={'mini'}>{datasetDetail._id}</Box>
         </Flex>
-
-        <Box mt={5} w={'100%'}>
-          <Flex alignItems={'center'} fontSize={'mini'}>
-            <FormLabel fontWeight={'500'} flex={'1 0 0'}>
-              {t('common:core.ai.model.Vector Model')}
-            </FormLabel>
-            <MyTooltip label={t('dataset:vector_model_max_tokens_tip')}>
-              <Box>
-                {t('dataset:chunk_max_tokens')}: {vectorModel.maxToken}
-              </Box>
-            </MyTooltip>
-          </Flex>
-          <Box pt={2}>
-            <AIModelSelector
-              w={'100%'}
-              value={vectorModel.model}
-              fontSize={'mini'}
-              disableTip={
-                isTraining
-                  ? t(
-                      'dataset:the_knowledge_base_has_indexes_that_are_being_trained_or_being_rebuilt'
-                    )
-                  : undefined
-              }
-              list={vectorModelList.map((item) => ({
-                label: item.name,
-                value: item.model
-              }))}
-              onchange={(e) => {
-                const vectorModel = vectorModelList.find((item) => item.model === e);
-                if (!vectorModel) return;
-                return onOpenConfirmRebuild(async () => {
-                  await onRebuilding(vectorModel);
-                  setValue('vectorModel', vectorModel);
-                })();
-              }}
-            />
-          </Box>
-        </Box>
-
-        <Box pt={5}>
-          <FormLabel fontSize={'mini'} fontWeight={'500'}>
-            {t('common:core.ai.model.Dataset Agent Model')}
-          </FormLabel>
-          <Box pt={2}>
-            <AIModelSelector
-              w={'100%'}
-              value={agentModel.model}
-              list={datasetModelList.map((item) => ({
-                label: item.name,
-                value: item.model
-              }))}
-              fontSize={'mini'}
-              onchange={(e) => {
-                const agentModel = datasetModelList.find((item) => item.model === e);
-                if (!agentModel) return;
-                setValue('agentModel', agentModel);
-                return handleSubmit((data) => onSave({ ...data, agentModel: agentModel }))();
-              }}
-            />
-          </Box>
-        </Box>
 
         {feConfigs?.isPlus && (
           <Flex alignItems={'center'} pt={5}>
@@ -348,43 +264,7 @@ const Info = ({ datasetId }: { datasetId: string }) => {
         )}
       </Box>
 
-      {datasetDetail.permission.hasManagePer && (
-        <>
-          <MyDivider my={4} h={'2px'} maxW={'500px'} />
-          <Box>
-            <MemberManager
-              managePer={{
-                permission: datasetDetail.permission,
-                onGetCollaboratorList: () => getCollaboratorList(datasetId),
-                permissionList: DatasetPermissionList,
-                onUpdateCollaborators: (body) =>
-                  postUpdateDatasetCollaborators({
-                    ...body,
-                    datasetId
-                  }),
-                onDelOneCollaborator: async ({ groupId, tmbId, orgId }) => {
-                  if (tmbId) {
-                    return deleteDatasetCollaborators({
-                      datasetId,
-                      tmbId
-                    });
-                  } else if (groupId) {
-                    return deleteDatasetCollaborators({
-                      datasetId,
-                      groupId
-                    });
-                  } else if (orgId) {
-                    return deleteDatasetCollaborators({
-                      datasetId,
-                      orgId
-                    });
-                  }
-                }
-              }}
-            />
-          </Box>
-        </>
-      )}
+    
 
       <ConfirmDelModal />
       <ConfirmRebuildModal countDown={10} />
