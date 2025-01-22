@@ -226,22 +226,22 @@ const Header = ({}: {}) => {
               menuList={[
                 {
                   children: [
-                    {
-                      label: (
-                        <Flex>
-                          <MyIcon name={'core/dataset/manualCollection'} mr={2} w={'20px'} />
-                          {t('common:core.dataset.Manual collection')}
-                        </Flex>
-                      ),
-                      onClick: () => {
-                        onOpenCreateVirtualFileModal({
-                          defaultVal: '',
-                          onSuccess: (name) => {
-                            onCreateCollection({ name, type: DatasetCollectionTypeEnum.virtual });
-                          }
-                        });
-                      }
-                    },
+                    // {
+                    //   label: (
+                    //     <Flex>
+                    //       <MyIcon name={'core/dataset/manualCollection'} mr={2} w={'20px'} />
+                    //       {t('common:core.dataset.Manual collection')}
+                    //     </Flex>
+                    //   ),
+                    //   onClick: () => {
+                    //     onOpenCreateVirtualFileModal({
+                    //       defaultVal: '',
+                    //       onSuccess: (name) => {
+                    //         onCreateCollection({ name, type: DatasetCollectionTypeEnum.virtual });
+                    //       }
+                    //     });
+                    //   }
+                    // },
                     {
                       label: (
                         <Flex>
