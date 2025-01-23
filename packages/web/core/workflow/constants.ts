@@ -57,10 +57,10 @@ export const systemPluginTemplateList: TGroupType[] = [
     typeId: FlowNodeTemplateTypeEnum.tools,
     typeName: i18nT('common:navbar.Tools')
   },
-  {
-    typeId: FlowNodeTemplateTypeEnum.search,
-    typeName: i18nT('common:common.Search')
-  },
+  // {
+  //   typeId: FlowNodeTemplateTypeEnum.search,
+  //   typeName: i18nT('common:common.Search')
+  // },
   {
     typeId: FlowNodeTemplateTypeEnum.multimodal,
     typeName: i18nT('common:core.workflow.template.Multimodal')

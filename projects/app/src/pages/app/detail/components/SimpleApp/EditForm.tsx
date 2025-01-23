@@ -338,7 +338,7 @@ const EditForm = ({
         </Box>
 
         {/* whisper */}
-        <Box {...BoxStyles}>
+        {/* <Box {...BoxStyles}>
           <WhisperConfig
             isOpenAudio={appForm.chatConfig.ttsConfig?.type !== TTSTypeEnum.none}
             value={appForm.chatConfig.whisperConfig}
@@ -352,7 +352,7 @@ const EditForm = ({
               }));
             }}
           />
-        </Box>
+        </Box> */}
 
         {/* question guide */}
         <Box {...BoxStyles}>

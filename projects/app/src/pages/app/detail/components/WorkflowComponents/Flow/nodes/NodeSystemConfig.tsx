@@ -74,12 +74,12 @@ const NodeUserGuide = ({ data, selected }: NodeProps<FlowNodeItemType>) => {
             <Box mt={3} pt={3} borderTop={'base'} borderColor={'myGray.200'}>
               <FileSelectConfig {...componentsProps} />
             </Box>
-            <Box mt={3} pt={3} borderTop={'base'} borderColor={'myGray.200'}>
+            {/* <Box mt={3} pt={3} borderTop={'base'} borderColor={'myGray.200'}>
               <TTSGuide {...componentsProps} />
-            </Box>
-            <Box mt={3} pt={3} borderTop={'base'} borderColor={'myGray.200'}>
+            </Box> */}
+            {/* <Box mt={3} pt={3} borderTop={'base'} borderColor={'myGray.200'}>
               <WhisperGuide {...componentsProps} />
-            </Box>
+            </Box> */}
             <Box mt={3} pt={4} borderTop={'base'} borderColor={'myGray.200'}>
               <QuestionGuide {...componentsProps} />
             </Box>
@@ -171,40 +171,40 @@ function QuestionGuide({ chatConfig: { questionGuide }, setAppDetail }: Componen
   );
 }
 
-function TTSGuide({ chatConfig: { ttsConfig }, setAppDetail }: ComponentProps) {
-  return (
-    <TTSSelect
-      value={ttsConfig}
-      onChange={(e) => {
-        setAppDetail((state) => ({
-          ...state,
-          chatConfig: {
-            ...state.chatConfig,
-            ttsConfig: e
-          }
-        }));
-      }}
-    />
-  );
-}
+// function TTSGuide({ chatConfig: { ttsConfig }, setAppDetail }: ComponentProps) {
+//   return (
+//     <TTSSelect
+//       value={ttsConfig}
+//       onChange={(e) => {
+//         setAppDetail((state) => ({
+//           ...state,
+//           chatConfig: {
+//             ...state.chatConfig,
+//             ttsConfig: e
+//           }
+//         }));
+//       }}
+//     />
+//   );
+// }
 
-function WhisperGuide({ chatConfig: { whisperConfig, ttsConfig }, setAppDetail }: ComponentProps) {
-  return (
-    <WhisperConfig
-      isOpenAudio={ttsConfig?.type !== TTSTypeEnum.none}
-      value={whisperConfig}
-      onChange={(e) => {
-        setAppDetail((state) => ({
-          ...state,
-          chatConfig: {
-            ...state.chatConfig,
-            whisperConfig: e
-          }
-        }));
-      }}
-    />
-  );
-}
+// function WhisperGuide({ chatConfig: { whisperConfig, ttsConfig }, setAppDetail }: ComponentProps) {
+//   return (
+//     <WhisperConfig
+//       isOpenAudio={ttsConfig?.type !== TTSTypeEnum.none}
+//       value={whisperConfig}
+//       onChange={(e) => {
+//         setAppDetail((state) => ({
+//           ...state,
+//           chatConfig: {
+//             ...state.chatConfig,
+//             whisperConfig: e
+//           }
+//         }));
+//       }}
+//     />
+//   );
+// }
 
 function ScheduledTrigger({
   chatConfig: { scheduledTriggerConfig },

@@ -278,11 +278,11 @@ export enum VariableInputEnum {
 export const variableMap: Record<
   VariableInputEnum,
   {
-    icon: string;
-    label: string;
-    value: VariableInputEnum;
-    defaultValueType: WorkflowIOValueTypeEnum;
-    description?: string;
+    // icon: string;
+    // label: string;
+    // value: VariableInputEnum;
+    // defaultValueType: WorkflowIOValueTypeEnum;
+    // description?: string;
   }
 > = {
   [VariableInputEnum.input]: {
